@@ -49,27 +49,27 @@ g) Dibuja la estructura en árbol que define este documento
 ## Ejercicio 2
 
 a) Escribe el documento en SGML que representa esa estructura  
-  
-  
-<!DOCTYPE universidad SYSTEM "universidad.dtd">
-<universidad>
-  <!-- include URL URJC -->
-  <escuela>
-    <nombre>
-        <nombre>ETSI Telecomunicación</nombre>
-    </nombre>
-    <grado>
-        <nombre>'Ingeniería en sistemas' 'Audiovisuales y Multimedia'</nombre>
-        <asignatura>LTAW</asignatura>
-        <asignatura>CSAII</asignatura>
-        <asignatura>ASA II</asignatura>
-    </grado>
-    <grado>
-        <nombre>'Ingeniería en Robótica' 'Software'</nombre>
-        <asignatura>AC</asignatura>
-    </grado>
-  </escuela>
-</universidad>
+
+    <!DOCTYPE universidad SYSTEM "universidad.dtd">
+    <universidad>
+    <!-- include URL URJC -->  
+        <escuela>  
+        <nombre>  
+            <nombre>ETSI Telecomunicación</nombre>   
+        </nombre>  
+        <grado>  
+            <nombre>'Ingeniería en sistemas' 'Audiovisuales y Multimedia'</  
+            nombre>    
+            <asignatura>LTAW</asignatura>   
+            <asignatura>CSAII</asignatura>    
+            <asignatura>ASA II</asignatura>    
+        </grado>    
+        <grado>   
+            <nombre>'Ingeniería en Robótica' 'Software'</nombre>   
+            <asignatura>AC</asignatura>    
+        </grado>   
+        </escuela>    
+    </universidad>
 
 b) ¿Cuántos elementos contenedores hay? Indica sus nombres
 Hay 4, universidad, escuela, nombre, grado.
@@ -77,6 +77,7 @@ Hay 4, universidad, escuela, nombre, grado.
 c) ¿Cuantos elementos terminales hay? Indica sus valores
 ETSI Telecomunicación (dentro del primer nombre).
 'Ingeniería en sistemas' 'Audiovisuales y Multimedia' (dentro del primer nombre de grado).
+
 LTAW, CSAII, ASA II (dentro de asignatura en el primer grado).
 'Ingeniería en Robótica' 'Software' (dentro del segundo nombre de grado).
 AC (dentro de asignatura en el segundo grado).
@@ -90,25 +91,25 @@ grado (dentro de escuela).
 
 a) Escribe el documento en SGML que representa esa estructura
 
-<!DOCTYPE universidad SYSTEM "universidad.dtd">
-<universidad>
-  <!-- include URL URJC -->
-  <escuela>
-    <nombre>
-        <nombre>ETSI Telecomunicación</nombre>
-    </nombre>
-    <grado>
-        <nombre>'Ingeniería en sistemas' 'Audiovisuales y Multimedia'</nombre>
-        <asignatura>LTAW</asignatura>
-        <asignatura>CSAII</asignatura>
-        <asignatura>ASA II</asignatura>
-    </grado>
-    <grado>
-        <nombre>'Ingeniería en Robótica' 'Software'</nombre>
-        <asignatura>AC</asignatura>
-    </grado>
-  </escuela>
-</universidad>   
+    <!DOCTYPE universidad SYSTEM "universidad.dtd">
+    <universidad>
+    <!-- include URL URJC -->
+    <escuela>
+        <nombre>
+            <nombre>ETSI Telecomunicación</nombre>
+        </nombre>
+        <grado>
+            <nombre>'Ingeniería en sistemas' 'Audiovisuales y Multimedia'</nombre>
+            <asignatura>LTAW</asignatura>
+            <asignatura>CSAII</asignatura>
+            <asignatura>ASA II</asignatura>
+        </grado>
+        <grado>
+            <nombre>'Ingeniería en Robótica' 'Software'</nombre>
+            <asignatura>AC</asignatura>
+        </grado>
+    </escuela>
+    </universidad>   
   
   
 b) ¿Cuantos elementos hay en total?
@@ -116,10 +117,12 @@ Hay 11 elementos
 
 c) ¿Cuantos elementos terminales hay?. Indica sus valores
 Hay 5 elementos
+
 d) ¿Cuantos elementos no terminales hay?. Indica cuántos hay en cada nivel
+Hay 6 elementos no terminales, 1 por cada nivel
 
 e) ¿Cuantos elementos hay en el nivel 5?.Indica sus nombres
-
+2 elementos, el contenedor y el terminal
 ## Ejercicio 4
 
 a) Su diagrama de contenedores
