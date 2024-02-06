@@ -1,6 +1,5 @@
  # Práctica 1
 
-# Ejercicios
 
 ## Ejercicio 1
 a) Explica para qué sirve la primera línea del documento y por qué es necesaria
@@ -19,33 +18,39 @@ e) ¿Cuantas etiquetas de apertura hay? ¿Cuantas de cierre?
 5 de apertura y 5 de cierre
 
 f) Dibuja el diagrama de contenedores de este documento
->urjc_ml
-  >campus
-      >escuela
-          >grado
-              >nombre
-              >asignatura
-                    >asignatura
-                    >asignatura
+        
+    urjc
+        campus
+        escuela
+              grado
+                  nombre
+              asignatura
+                    asignatura
+                    asignatura
 
 g) Dibuja la estructura en árbol que define este documento
-     urjc_ml
-        :
-      campus
-        :
-        :
-    ------------
-    :          :
-  nombre     grado 
-               :
-           --------------------------
-           :        :               :
-        nombre    asignatura   asignatura
+       
+        urjc_ml  
+           :
+         campus
+           :
+           :
+       ------------
+       :          :
+       :          
+     nombre     grado 
+                  :
+            --------------------------
+            :          :             :  
+            :          :             :    
+         nombre    asignatura   asignatura
 
 
 ## Ejercicio 2
 
-a) Escribe el documento en SGML que representa esa estructura
+a) Escribe el documento en SGML que representa esa estructura  
+  
+  
 <!DOCTYPE universidad SYSTEM "universidad.dtd">
 <universidad>
   <!-- include URL URJC -->
@@ -85,10 +90,32 @@ grado (dentro de escuela).
 
 a) Escribe el documento en SGML que representa esa estructura
 
+<!DOCTYPE universidad SYSTEM "universidad.dtd">
+<universidad>
+  <!-- include URL URJC -->
+  <escuela>
+    <nombre>
+        <nombre>ETSI Telecomunicación</nombre>
+    </nombre>
+    <grado>
+        <nombre>'Ingeniería en sistemas' 'Audiovisuales y Multimedia'</nombre>
+        <asignatura>LTAW</asignatura>
+        <asignatura>CSAII</asignatura>
+        <asignatura>ASA II</asignatura>
+    </grado>
+    <grado>
+        <nombre>'Ingeniería en Robótica' 'Software'</nombre>
+        <asignatura>AC</asignatura>
+    </grado>
+  </escuela>
+</universidad>   
+  
+  
 b) ¿Cuantos elementos hay en total?
+Hay 11 elementos
 
 c) ¿Cuantos elementos terminales hay?. Indica sus valores
-
+Hay 5 elementos
 d) ¿Cuantos elementos no terminales hay?. Indica cuántos hay en cada nivel
 
 e) ¿Cuantos elementos hay en el nivel 5?.Indica sus nombres
@@ -96,29 +123,33 @@ e) ¿Cuantos elementos hay en el nivel 5?.Indica sus nombres
 ## Ejercicio 4
 
 a) Su diagrama de contenedores
->FPGAs
-    >FPGAs libres
-        >Familias
-            >ice40
-            >UP5K
-            >ECP5
-        >Placas
-            >Alhambra II
-            >Icestick
-            >ULX3S
-            >iceBreaker
-            >TinyFPGA
+
+FPGAs
+    FPGAs libres
+        Familias
+            ice40
+            UP5K
+            ECP5
+        Placas
+            Alhambra II
+            Icestick
+            ULX3S
+            iceBreaker
+            TinyFPGA
+
 
 b) Su estructura en árbol
-FPGAs
-  ├── FPGAs libres
-        ├── Familias
-        │     ├── ice40
-        │     ├── UP5K
-        │     └── ECP5
-        └── Placas
-              ├── Alhambra II
-              ├── Icestick
-              ├── ULX3S
-              ├── iceBreaker
-              └── TinyFPGA
+
+
+
+    FPGAs libres
+        Familias
+            ice40
+            UP5K
+            ECP5
+        Placas
+            Alhambra II
+            Icestick
+            ULX3S
+            iceBreaker
+            TinyFPGA
