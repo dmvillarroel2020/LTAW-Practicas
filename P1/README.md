@@ -96,5 +96,29 @@ e) ¿Cuantos elementos hay en el nivel 5?.Indica sus nombres
 ## Ejercicio 4
 
 a) Su diagrama de contenedores
+>FPGAs
+    >FPGAs libres
+        >Familias
+            >ice40
+            >UP5K
+            >ECP5
+        >Placas
+            >Alhambra II
+            >Icestick
+            >ULX3S
+            >iceBreaker
+            >TinyFPGA
 
 b) Su estructura en árbol
+FPGAs
+  ├── FPGAs libres
+        ├── Familias
+        │     ├── ice40
+        │     ├── UP5K
+        │     └── ECP5
+        └── Placas
+              ├── Alhambra II
+              ├── Icestick
+              ├── ULX3S
+              ├── iceBreaker
+              └── TinyFPGA
