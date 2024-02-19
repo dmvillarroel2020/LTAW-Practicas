@@ -92,15 +92,15 @@ console.log("Valor: " + valor);
 
 
 console.log("");
-console.log('EJEMPLO 4: Arrays literales')
+console.log('EJEMPLO 5: Arrays literales')
 
 //-- Ejemplo de arrays literales
 
 //-- Crear una lista (array) de 4 elementos
 const a = [1,3,5,7];
 
-//-- Mostrar el elemento 2
-console.log("Elemento 2: " + a[2]);
+//-- Mostrar el elemento 3
+console.log("Elemento 3: " + a[2]);
 
 //-- Recorrer todos los elementos
 for (i in a) {
@@ -109,3 +109,100 @@ for (i in a) {
 
 //-- Imprimir el numero total de elementos
 console.log("Cantidad de elementos: " + a.length);
+
+
+//-- --------------------------------------------
+
+
+console.log("");
+console.log('EJEMPLO 6: Funciones')
+
+//-- Ejemplo de definicion de funciones
+
+//-- Se definen 4 funciones sin parámetros
+//-- de diferentes formar
+
+//-- Definición clásica
+function mi_funcion1() {
+    console.log("Mi funcion 1!!");
+}
+
+//-- Se define una función y se asigna a una variable
+const mi_funcion2 = function() {
+    console.log("Mi funcion2....");
+}
+
+//-- Otra forma de hacer lo anterior, pero con una
+//-- notación abreviada
+const mi_funcion3 = () => {
+    console.log("Mi funcion3....")
+}
+
+//-- Definición de funciones dentro de un 
+//-- objeto literal
+const b = {
+    x : 10,
+    f4 : function() {
+        console.log("Mi funcion4!!!");
+    },
+    f5: () => {
+        console.log("Mi funcion 5!!!");
+    }
+}
+
+//-- Llamando a las funciones
+mi_funcion1()
+mi_funcion2()
+mi_funcion3()
+b.f4()
+b.f5()
+
+//-- --------------------------------------------
+
+
+console.log("");
+console.log('EJEMPLO 7: Paso de parámetros')
+
+//-- Ejemplo de paso de parametros a funciones
+
+//-- Recibe dos parámetros y devuelve su suma
+function suma(x,y) {
+    //-- devolver la suma
+    return x+y;
+  }
+  
+  //-- Recibe un parámetro y lo imprime por la consola
+  function mensaje(msg) {
+    console.log(msg);
+  }
+  
+  //-- Funcion que no recibe parametros
+  function saluda() {
+      mensaje("HOLA!!");
+  }
+  
+  //-- Funcion que recibe una funcion como parametro
+  //-- y simplemente la llama 
+  function call(func) {
+    console.log("--> Funcion recibida");
+  
+    //-- Llamar a la funcion pasada como argumento
+    func();
+  }
+  
+  //-- Llamar a suma
+  let a = suma(2,3);
+  
+  //-- Probando la funcione mensaje
+  mensaje("Prueba")
+  mensaje(a);
+  
+  //-- Probando la funcion call
+  call(saluda);
+  
+  //-- Se le pasa como parametro una funcion
+  //-- que se define dentro de los parmatros, vez de 
+  //-- fuera
+  call( () => {
+    mensaje("HOLI!!")
+  });
