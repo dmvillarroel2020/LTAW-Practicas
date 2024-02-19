@@ -1,6 +1,4 @@
-//-- --------------------------------------------
-
-const http = require('http');
+const http = require('node:http');
 
 //-- Crear el servidor
 const server = http.createServer();
@@ -23,4 +21,4 @@ server.on('request', atender);
 
 //-- Activar el servidor. A la escucha de peitciones
 //-- en el puerto 8080
-server.listen(5060);
+server.listen(8070);
