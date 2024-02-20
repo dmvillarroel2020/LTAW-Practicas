@@ -1,87 +1,61 @@
 const http = require('http');
+const fs = require('fs').promises; // Importar el módulo fs para leer archivos
 
 const PUERTO = 9090;
 
-//-- Texto HTML de la página principal
-const pagina_main = `
+// Rutas de los archivos HTML
+const pagina_main_path = 'index.html';
+const pagina_error_path = 'error.html';
+const prod1_path = 'prod1.html';
+const prod2_path = 'prod2.html';
+const prod3_path = 'prod3.html';
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="micss.css">
-    <title>Tienda</title>
-</head>
-<body>
-    <h1>MI TIENDA2</h1>
-    <p>Bienvenido a mi tienda</p>
-    <ul>
-        <li>
-            <a href="prod1.html">Producto 1</a>  
-        </li>
-        <li>
-            <a href="prod2.html">Producto 2</a>
-        </li>
-        <li>
-            <a href="prod3.html">Producto 3</a>
-        </li>
+// Función para leer archivos HTML
+async function leerArchivoHTML(path) {
+    try {
+        const contenido = await fs.readFile(path, 'utf-8');
+        return contenido;
+    } catch (error) {
+        console.error(`Error al leer el archivo ${path}:`, error);
+        return null;
+    }
+}
 
-        <img src="logo-urjc.png" alt="LOGO-URJC">
-
-    </ul>
-
-</body>
-</html>
-`
-
-//-- Texto HTML de la página de error
-const pagina_error = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi tienda</title>
-</head>
-<body style="background-color: red">
-    <h1 style="color: white">ERROR!!!!</h1>
-</body>
-</html>
-`
-
-const server = http.createServer((req, res)=>{
+const server = http.createServer(async (req, res) => {
     console.log("Petición recibida!");
 
-    //-- Valores de la respuesta por defecto
     let code = 200;
     let code_msg = "OK";
-    let page = pagina_main;
+    let page;
 
-    //-- Analizar el recurso
-    //-- Construir el objeto url con la url de la solicitud
     const url = new URL(req.url, 'http://' + req.headers['host']);
-    console.log(url.pathname);
 
-    //-- Cualquier recurso que no sea la página principal
-    //-- genera un error
-    if (url.pathname != '/') {
-        code = 404;
-        code_msg = "Not Found";
-        page = pagina_error;
+    switch (url.pathname) {
+        case '/':
+            page = await leerArchivoHTML(pagina_main_path);
+            break;
+        case '/prod1.html':
+            page = await leerArchivoHTML(prod1_path);
+            break;
+        case '/prod2.html':
+            page = await leerArchivoHTML(prod2_path);
+            break;
+        case '/prod3.html':
+            page = await leerArchivoHTML(prod3_path);
+            break;
+        default:
+            code = 404;
+            code_msg = "Not Found";
+            page = await leerArchivoHTML(pagina_error_path);
     }
 
-    //-- Generar la respusta en función de las variables
-    //-- code, code_msg y page
     res.statusCode = code;
     res.statusMessage = code_msg;
-    res.setHeader('Content-Type','text/html');
-    res.write(page);
+    res.setHeader('Content-Type', 'text/html');
+    res.write(page || ''); // Si la página es null (no se pudo leer el archivo), envía una cadena vacía
     res.end();
 });
 
 server.listen(PUERTO);
 
-console.log("SERVER TIENDA DE CAMISETAS DE FÚTBOL: " + PUERTO);
+console.log("Servidor en ejecución en el puerto:", PUERTO);
