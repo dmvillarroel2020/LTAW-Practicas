@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs').promises; // Importar el módulo fs para leer archivos
 
-const PUERTO = 9090;
+const PUERTO = 7070;
 
 // Rutas de los archivos HTML
 const pagina_main_path = 'index.html';
