@@ -5,12 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="micss.css">
-
-    <title>FUTCODE: CAMISETA BARCELONA</title>
+    <title>FUTCODE: CAMISETA ATLÉTICO</title>
 </head>
-<body class="prod2">
-    <h1>Barcelona Tee</h1>
+<body class="prod1">
+    <h1>Atlético Tee</h1>
     <img id="imagen" src="ATM_tee.jpeg" alt="atm_tee" width="200" height="200">
+    <div class="add-to-cart">
+        <button onclick="addToCart()">Añadir al carrito</button>
+        <input type="number" id="quantity" value="1">
+        <span id="cart-count">0</span> en el carrito
+    </div>
     <a href="/">Volver a la página principal</a>
+
+    <script>
+        let cartCount = 0;
+
+        function addToCart() {
+            const quantity = parseInt(document.getElementById("quantity").value);
+            cartCount += quantity;
+            document.getElementById("cart-count").textContent = cartCount;
+        }
+    </script>
 </body>
 </html>

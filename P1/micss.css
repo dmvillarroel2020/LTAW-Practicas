@@ -24,15 +24,16 @@ body.prod3 {
 .content{
     background-color: rgb(255, 255, 255);
     text-align: center; 
+    background-image: url(fondo.jpg);
 
 }
 
 h1{
-
+    background-color:green;
+    color:white;
 }
 
-h3{
-}
+
 
 .buttoncami {
     display: block;
