@@ -1,7 +1,42 @@
+/* Estilos generales */
 body {
-    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-h1 {
-    color: rgb(255, 255, 255);
+/* Estilos para el fondo y la imagen de fondo semitransparente */
+body.prod1 {
+    background-image: url('.jpg');
+    background-size: 5%;
+}
+
+body.prod2 {
+    background-image: url('.jpg');
+    background-size: 5%;
+}
+
+body.prod3 {
+    background-image: url('.jpg');
+    background-size: 5%;
+}
+
+.content{
+    background-color: rgb(255, 255, 255);
+    text-align: center; 
+
+}
+
+h1{
+
+}
+
+h3{
+}
+
+.buttoncami {
+    display: block;
+    margin-bottom: 30px;
+    padding: 5;
+    margin: 5;
 }
