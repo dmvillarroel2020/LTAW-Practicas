@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="micss.css">
-    <title>FUTCODE: CAMISETA BARCELONA</title>
+    <title>FUTCODE: Barcelona Tee</title>
+    <link rel="stylesheet" href="micss.css"> 
 </head>
-<body class="prod1">
-    <h1>Barcelona Tee</h1>
-    <img id="imagen" src="BCN_tee.jpeg" alt="bcn_tee" width="200" height="200">
-    <div class="add-to-cart">
-        <button onclick="addToCart()">Añadir al carrito</button>
-        <input type="number" id="quantity" value="1">
-        <span id="cart-count">0</span> en el carrito
+<body>
+    <div class="container">
+        <h1>Barcelona Tee</h1>
+        <img src="BCN_tee.jpeg" alt="bcn_tee" width="200" height="200">
+        <p>Camiseta del Barcelona. Lamine nº 27.</p>
+        <p>Precio unitario: 30€. (Réplica)</p>
+        <label for="quantity">Cantidad:</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1">
+        <button onclick="agregarAlCarrito('Barcelona Tee', 30)">Agregar al Carrito</button>
+        
+        <p><a href="procesa_compra.html">Procesar Compra</a></p>
+        <p><a href="carrito.html">Ver Carrito</a></p>
+        <p><a href="index.html">Volver a la Página Principal</a></p>
     </div>
 
-    <p><a href="carrito.html">Ver Carrito</a></p>
-    <a href="/">Volver a la página principal</a>
-
     <script>
-        let cartCount = 0;
+        // Función para agregar el producto al carrito
+        function agregarAlCarrito(producto, precioUnitario) {
+            // Obtener el valor actual de la cookie de productos
+            let productos = getCookie('productos');
+            // Obtener la cantidad de unidades seleccionadas
+            const cantidad = parseInt(document.getElementById('quantity').value);
+            // Calcular el precio total del producto
+            const precioTotal = cantidad * precioUnitario;
+            // Agregar el producto actual y la cantidad de unidades a la cookie de productos
+            if (productos) {
+                productos += `, ${producto} (${cantidad} unidades - ${precioTotal}€)`;
+            } else {
+                productos = `${producto} (${cantidad} unidades - ${precioTotal}€)`;
+            }
+            document.cookie = `productos=${productos}`;
+            // Actualizar la vista del carrito
+            mostrarCarrito();
+        }
 
-        function addToCart() {
-            const quantity = parseInt(document.getElementById("quantity").value);
-            cartCount += quantity;
-            document.getElementById("cart-count").textContent = cartCount;
+        // Función para obtener el valor de una cookie
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
     </script>
 </body>

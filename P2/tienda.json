@@ -1,0 +1,52 @@
+{
+    "usuarios": [
+      {
+        "nombre_usuario": "root",
+        "nombre_real": "Administrador",
+        "correo": "admin@example.com"
+      },
+      {
+        "nombre_usuario": "diegomv",
+        "nombre_real": "diegovilla",
+        "correo": "diegovilla@urjc.es"
+      },
+      {
+        "nombre_usuario": "usuario2",
+        "nombre_real": "u2",
+        "correo": "usuario2@urjc.es"
+      },
+      {
+        "nombre_usuario": "usuario3",
+        "nombre_real": "u3",
+        "correo": "usuario3@urjc.es"
+      }
+    ],
+    "productos": [
+      {
+        "nombre": "Real Madrid Tee",
+        "descripcion": "Camiseta del Real Madrid. Bellingham nº 5.",
+        "precio": 30,
+        "cantidad_stock": 15
+      },
+      {
+        "nombre": "Atlético Tee",
+        "descripcion": "Camiseta del Atlético de Madrid.",
+        "precio": 30,
+        "cantidad_stock": 15
+      },
+      {
+        "nombre": "Barcelona Tee",
+        "descripcion": "Camiseta del Barcelona.",
+        "precio": 30,
+        "cantidad_stock": 15
+      }
+    ],
+    "pedidos": [
+        {
+            "nombre_usuario": "",
+            "direccion_envio": "",
+            "numero_tarjeta": ""
+          }
+    ]
+  }
+  

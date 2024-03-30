@@ -10,17 +10,76 @@
 <body>
     <div class="container">
         <h1>Carrito de Compra</h1>
-        
-
-        <button onclick="procesarCompra()">Procesar Compra</button>
-        <p><a href="index.html">Seguir Comprando</a></p> <!-- Ajusta el atributo href con la URL de tu página principal -->
+        <ul id="cart-list"></ul>
+        <p><button onclick="vaciarCarrito()">Vaciar Carrito</button></p>
+        <p><a href="index.html">Seguir Comprando</a></p>
+        <p id="subtotal">Subtotal: 0€</p>
     </div>
 
     <script>
-        function procesarCompra() {
-            // Aquí puedes agregar la lógica para procesar la compra, como enviar los detalles del pedido al servidor
-            alert("Compra procesada con éxito. ¡Gracias por su compra!");
+        // Función para obtener el valor de una cookie
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
+
+        // Función para mostrar los productos en el carrito
+        function mostrarCarrito() {
+            const cartList = document.getElementById('cart-list');
+            const productos = getCookie('productos');
+            let subtotal = 0;
+            cartList.innerHTML = ''; // Limpiar el carrito antes de mostrarlo nuevamente
+            if (productos) {
+                productos.split(',').forEach((producto, index) => {
+                    const listItem = document.createElement('li');
+                    const cantidad = parseInt(producto.match(/\d+/)[0]); // Extraer la cantidad de unidades del texto del producto
+                    const precioUnitario = 30; // Precio unitario de cada producto
+                    const precioTotalProducto = precioUnitario * cantidad; // Precio total del producto
+                    listItem.textContent = `${producto} - Precio: ${precioTotalProducto}€`;
+                    // Agregar contador de cantidad de unidades
+                    const cantidadInput = document.createElement('input');
+                    cantidadInput.type = 'number';
+                    cantidadInput.value = cantidad;
+                    cantidadInput.min = 1;
+                    cantidadInput.onchange = function() {
+                        const nuevaCantidad = parseInt(cantidadInput.value);
+                        if (!isNaN(nuevaCantidad) && nuevaCantidad >= 1) {
+                            const nuevosProductos = productos.split(',');
+                            nuevosProductos[index] = nuevosProductos[index].replace(cantidad, nuevaCantidad);
+                            document.cookie = `productos=${nuevosProductos.join(',')}`;
+                            mostrarCarrito();
+                        } else {
+                            alert('Por favor, ingrese una cantidad válida.');
+                        }
+                    };
+                    listItem.appendChild(cantidadInput);
+                    // Agregar botón para eliminar el producto del carrito
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Eliminar';
+                    deleteButton.onclick = function() {
+                        const nuevosProductos = productos.split(',');
+                        nuevosProductos.splice(index, 1);
+                        document.cookie = `productos=${nuevosProductos.join(',')}`;
+                        mostrarCarrito();
+                    };
+                    listItem.appendChild(deleteButton);
+                    cartList.appendChild(listItem);
+                    subtotal += precioTotalProducto; // Sumar el precio total del producto al subtotal
+                });
+            }
+            // Mostrar el subtotal en el carrito
+            document.getElementById('subtotal').textContent = `Subtotal: ${subtotal.toFixed(2)}€`;
+        }
+
+        // Función para vaciar el carrito
+        function vaciarCarrito() {
+            document.cookie = 'productos=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            mostrarCarrito();
+        }
+
+        // Mostrar los productos en el carrito al cargar la página
+        window.onload = mostrarCarrito;
     </script>
 </body>
 </html>
