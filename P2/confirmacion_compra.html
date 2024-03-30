@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    <link rel="stylesheet" href="micss.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Compra Realizada con Éxito</h1>
+        <p>¡Gracias por su compra!</p>
+        
+        <!-- Botón para revisar el pedido -->
+        <button onclick="revisarPedido()">Revisar Pedido</button>
+        
+        <!-- Botón para volver a la página principal -->
+        <button onclick="volverPrincipal()">Volver a la Página Principal</button>
+    </div>
+
+    <script>
+        // Función para revisar el pedido
+        function revisarPedido() {
+            // Redirigir a la página de revisión de pedido (puedes crear un HTML adicional para esto)
+            window.location.href = "revision_pedido.html";
+        }
+        
+        // Función para volver a la página principal
+        function volverPrincipal() {
+            // Redirigir a la página principal
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisión de Pedido</title>
+    <link rel="stylesheet" href="micss.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles del Pedido</h1>
+        
+        <!-- Aquí puedes mostrar los detalles del pedido -->
+        <h2>Contenido del Carrito:</h2>
+        <ul id="lista_carrito"></ul>
+        
+        <h2>Datos de Envío</h2>
+        <p><strong>Dirección de Envío:</strong> <span id="direccion_envio"></span></p>
+        
+        <h2>Datos de Pago</h2>
+        <p><strong>Número de Tarjeta:</strong> <span id="numero_tarjeta"></span></p>
+        
+        <!-- Botón para volver a la página principal -->
+        <button onclick="volverPrincipal()">Volver a la Página Principal</button>
+    </div>
+
+    <script>
+        // Función para obtener los datos del pedido de la URL y mostrarlos en la página
+        window.onload = function() {
+            // Obtener los parámetros de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Mostrar el contenido del carrito
+            const contenidoCarrito = urlParams.get('contenido_carrito');
+            if (contenidoCarrito) {
+                const listaCarrito = document.getElementById('lista_carrito');
+                contenidoCarrito.split(',').forEach(producto => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = producto;
+                    listaCarrito.appendChild(listItem);
+                });
+            }
+            
+            // Mostrar la dirección de envío
+            const direccionEnvio = urlParams.get('direccion_envio');
+            document.getElementById('direccion_envio').textContent = direccionEnvio;
+            
+            // Mostrar el número de tarjeta
+            const numeroTarjeta = urlParams.get('numero_tarjeta');
+            document.getElementById('numero_tarjeta').textContent = numeroTarjeta;
+        };
+        
+        // Función para volver a la página principal
+        function volverPrincipal() {
+            // Redirigir a la página principal
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
