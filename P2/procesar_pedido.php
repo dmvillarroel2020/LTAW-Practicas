@@ -26,8 +26,7 @@ $clientes[] = $nuevo_pedido;
 // Guardar los datos en el archivo JSON
 file_put_contents($filename, json_encode($clientes, JSON_PRETTY_PRINT));
 
-// Redirigir a la página de revisión de pedido con el índice del pedido como parámetro
-$pedido_id = count($clientes) - 1;
-header('Location: revision_pedido.html?pedido_id=' . $pedido_id);
+// Redirigir a la página de confirmación
+header('Location: confirmacion_pedido.html');
 exit();
 ?>
