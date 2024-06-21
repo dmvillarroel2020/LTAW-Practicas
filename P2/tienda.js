@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs').promises;
 const path = require('path');
 
-const PUERTO = 7070;
+const PUERTO = 5050;
 
 // Rutas de los archivos HTML, CSS y JS
 const pagina_main_path = 'index.html';

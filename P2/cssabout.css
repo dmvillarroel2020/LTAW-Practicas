@@ -1,0 +1,123 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    background-color: #000000;
+    color: white;
+    padding: 20px 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.principal {
+    text-align: center; 
+    padding: 20px;
+}
+
+.content {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    color: #000000;
+    margin-top: 20px;
+    font-size: 1.8em;
+}
+
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form input[type="submit"] {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    align-self: center;
+}
+
+form input[type="submit"]:hover {
+    background-color: #000000;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+ul li a {
+    font-size: 1.2em;
+}
+
+/* Estilos para botones de navegación */
+.nav-buttons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.nav-buttons a {
+    display: inline-block;
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.nav-buttons a:hover {
+    background-color: #000000;
+}

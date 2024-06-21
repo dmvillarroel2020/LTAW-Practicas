@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FUTCODE: Iniciar Sesión</title>
     <link rel="stylesheet" href="micss.css">
+    <script src="login.js"></script> <!-- Añade este script -->
 </head>
 <body>
     <div class="container">
         <h1>Iniciar Sesión</h1>
-        <form action="procesar_login.php" method="POST"> 
+        <form id="loginForm">
             <label for="username">Nombre de Usuario:</label>
             <input type="text" id="username" name="username" required>
             <button type="submit">Iniciar Sesión</button>
         </form>
-        <p>¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a>.</p> 
+        <p>¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a>.</p>
         <p><a href="index.html">Volver a la página principal</a></p>
     </div>
 </body>
 </html>
-

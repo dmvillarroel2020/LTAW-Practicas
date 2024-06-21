@@ -6,28 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="micss.css">
     <title>FUTCODE: Tienda</title>
+    <script src="auth.js"></script>
 </head>
 <body class="principal">
+    <h1>FUTCODE</h1>
+    <h3 id="welcomeMessage">Bienvenido/a.</h3>
 
-        <h1>FUTCODE</h1>
-        <h3>Bienvenido/a.</h3>
-        <button><a href="login.html">Iniciar Sesión</a></button>
-    
+    <div class="nav">
+        <button id="loginButton"><a href="login.html">Iniciar Sesión</a></button>
+        <button id="logoutButton" style="display: none;" onclick="logout()">Cerrar Sesión</button>
+        <button><a href="index.html">Inicio</a></button>
+        <button><a href="carrito.html">Ver Carrito</a></button>
+        <button><a href="about.html">Sobre Nosotros</a></button>
+        <button><a href="contact.html">Contacto</a></button>
+    </div>
+
     <div class="content">
-
-            <div class="buttoncami">
-                <button><a href="prod1.html"><img id="imagen" src="RM_tee.jpeg" alt="rm_tee_logo" width="200" height="200"></a></button>
-
-                <button><a href="prod2.html"><img id="imagen" src="ATM_tee.jpeg" alt="atm_tee" width="200" height="200"></a></button>
-
-                <button><a href="prod3.html"><img id="imagen" src="BCN_tee.jpeg" alt="bcn_tee" width="200" height="200"></a></button>
-            </div>
-
+        <div class="product" id="producto1">
+            <button><a href="prod1.html"><img id="imagen" src="RM_tee.jpeg" alt="rm_tee_logo" width="200" height="200"></a></button>
+        </div>
+        <div class="product" id="producto2">
+            <button><a href="prod2.html"><img id="imagen" src="ATM_tee.jpeg" alt="atm_tee" width="200" height="200"></a></button>
+        </div>
+        <div class="product" id="producto3">
+            <button><a href="prod3.html"><img id="imagen" src="BCN_tee.jpeg" alt="bcn_tee" width="200" height="200"></a></button>
+        </div>
     </div>
-    <div>
-        <p><a href="carrito.html">Ver Carrito</a></p>
-    </div>
-
 </body>
 </html>
-

@@ -10,16 +10,22 @@
 <body>
     <div class="container">
         <h1>Barcelona Tee</h1>
+        <div class="nav">
+            <button><a href="index.html">Inicio</a></button>
+            <button><a href="carrito.html">Ver Carrito</a></button>
+            <button><a href="about.html">Sobre Nosotros</a></button>
+            <button><a href="contact.html">Contacto</a></button>
+            <button><a href="procesa_compra.html">Procesar Compra</a></button>
+        </div>
+
         <img src="BCN_tee.jpeg" alt="bcn_tee" width="200" height="200">
-        <p>Camiseta del Barcelona. Lamine nº 27.</p>
-        <p>Precio unitario: 30€. (Réplica)</p>
+        <p><strong>Nombre del Producto:</strong> Camiseta del Barcelona (Lamine nº 27)</p>
+        <p><strong>Precio Unitario:</strong> 30€. (Réplica)</p>
+        <p><strong>Materiales:</strong> 100% Poliéster</p>
+        <p><strong>Descripción:</strong> Camiseta réplica del equipo Barcelona, perfecta para los fanáticos del equipo. Con el número 27 y el nombre de Lamine en la espalda.</p>
         <label for="quantity">Cantidad:</label>
         <input type="number" id="quantity" name="quantity" value="1" min="1">
         <button onclick="agregarAlCarrito('Barcelona Tee', 30)">Agregar al Carrito</button>
-        
-        <p><a href="procesa_compra.html">Procesar Compra</a></p>
-        <p><a href="carrito.html">Ver Carrito</a></p>
-        <p><a href="index.html">Volver a la Página Principal</a></p>
     </div>
 
     <script>
@@ -38,8 +44,6 @@
                 productos = `${producto} (${cantidad} unidades - ${precioTotal}€)`;
             }
             document.cookie = `productos=${productos}`;
-            // Actualizar la vista del carrito
-            mostrarCarrito();
         }
 
         // Función para obtener el valor de una cookie
